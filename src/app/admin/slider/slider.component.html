@@ -1,0 +1,124 @@
+
+
+<app-loading *ngIf="isLoading"></app-loading>
+
+
+ <!--  Main wrapper -->
+ <div class="body-wrapper" *ngIf="!isLoading">
+  <!--  Header End -->
+  <div class="container-fluid">
+    <div class="container-fluid">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title fw-semibold mb-4">DANH SÁCH SliderShow</h5>
+          <div class="card">
+            <div class="card-body p-4" style="padding-bottom: 0 !important;">
+              <button type="button" class="btn btn-primary m-1" (click)="add()"  data-bs-toggle="modal" data-bs-target="#exampleModal">Thêm mới slider</button>
+
+            </div>
+            <div class="card-body p-4">
+              <div class="table-responsive">
+                <table class="table text-nowrap mb-0 align-middle">
+                  <thead class="text-dark fs-4">
+                    <tr>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Tên</h6>
+                      </th>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Ảnh bìa</h6>
+                      </th>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Địa chỉ truy cập</h6>
+                      </th>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Trạng thái</h6>
+                      </th>
+                      <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Tác vụ</h6>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr  *ngFor="let item of listslider , let i = index">
+                      <td [style.padding-left]="item.index*20+'px'" class="border-bottom-0">
+                          <h6 class="fw-semibold mb-1 title">{{item.title}} <i class="fa-solid fa-circle-arrow-down" *ngIf="item.children" ></i></h6>
+                      </td>
+                      <td class="border-bottom-0" style="width: 180px !important;">
+                        <p class="mb-0 fw-normal"><img class="image_hien" [src]="item.image" width="100%" height="100px" alt="" srcset=""></p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">{{item.description}}</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <div class="d-flex align-items-center gap-2">
+                          <span class="badge bg-primary rounded-3 fw-semibold">Active</span>
+                        </div>
+                      </td>
+                      <td class="border-bottom-0">
+                        <i class="fa-solid fa-pen-to-square edit" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="edit(item)" style="font-size: 20px;margin-right: 10px;"></i>
+                        <i class="fa-solid fa-trash remove" (click)="remove(item)" style="font-size: 20px;"></i>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <form (submit)="submit(userForm)" #userForm="ngForm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" *ngIf="isAdd" >Thêm Slider</h5>
+        <h5 class="modal-title" id="exampleModalLabel" *ngIf="!isAdd">Sửa Slider</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="card-body">
+                <div class="mb-3">
+                  <input type="hidden" [(ngModel)]="slider._id"  name="_id">
+                  <label for="exampleInputEmail1" class="form-label" *ngIf="isAdd">Tên Slider <span style="color: red;" >*</span></label>
+                  <label for="exampleInputEmail1" class="form-label" *ngIf="!isAdd">Tên Slider cần thay đổi<span style="color: red;" > *</span></label>
+                  <input type="text" minlength="4" placeholder="Title Category ...."  required [(ngModel)]="slider.title" name="title" #title="ngModel"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  <div  *ngIf="title?.invalid && (title.dirty || isValid)">
+                  <div id="emailHelp" class="form-text" style="color: red; font-weight: 500;" *ngIf="title.errors?.['required']">Không được bỏ trống</div>
+                  <div id="emailHelp" class="form-text" style="color: red; font-weight: 500;"*ngIf="title.errors?.['minlength']">Tên danh mục phải tối thiểu 4 chữ </div>
+                </div>
+                </div>
+
+                <div class="mb-3">
+                  <input type="hidden" [(ngModel)]="slider._id"  name="_id">
+                  <label for="exampleInputEmail1" class="form-label" *ngIf="isAdd">Des slider <span style="color: red;" >*</span></label>
+                  <label for="exampleInputEmail1" class="form-label" *ngIf="!isAdd">Des danh slider thay đổi<span style="color: red;" > *</span></label>
+                  <input type="text" placeholder="Title Category ...."   [(ngModel)]="slider.description" name="title" #description="ngModel"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label" *ngIf="isAdd">Địa chỉ hình nền</label>
+                  <label for="exampleInputEmail1" class="form-label" *ngIf="!isAdd">Địa chỉ hình nền cần thay đổi</label>
+                  <input type="text" [(ngModel)]="slider.image" name="background" placeholder="Url Image ...." #background="ngModel"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+
+    </div>
+  </form>
+  </div>
+</div>

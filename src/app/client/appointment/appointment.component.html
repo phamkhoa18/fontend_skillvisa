@@ -1,0 +1,94 @@
+<div class="appointment sec" id="appointment">
+    <div class="container container_appointment">
+        <div class="row appointment_khung">
+            <div class="col-lg-4 col-md-12 col-xs-12 form_appoinment">
+                    <div class="form_appointment_tong">
+                        <h2 class="appointment_title">ĐẶT LỊCH HẸN</h2>
+                        <div class="appointment_decs">
+                          <form class="khung_form" (submit)="submit(userForm)" #userForm="ngForm">
+                              <div class="item_input">
+                                  <input type="text" required  minlength="4" [(ngModel)]="user1.name" #title="ngModel" name="name" class="ho_ten" size="40" placeholder="Họ và tên">
+                                  <div  *ngIf="title?.invalid && (title.dirty || isValid)">
+                                    <div id="emailHelp" class="form-text" style="color: red; font-weight: 500;" *ngIf="title.errors?.['required']">Không được bỏ trống</div>
+                                    <div id="emailHelp" class="form-text" style="color: red; font-weight: 500;"*ngIf="title.errors?.['minlength']">Họ tên phải tối thiểu 4 chữ </div>
+                                  </div>
+                              </div>
+                              <div class="item_input">
+                                <input type="email" required [(ngModel)]="user1.email" #email="ngModel" name="email" class="ho_ten" size="40" placeholder="Email">
+                                <div  *ngIf="email?.invalid && (email.dirty || isValid)">
+                                  <div id="emailHelp" class="form-text" style="color: red; font-weight: 500;" *ngIf="email.errors?.['required']">Không được bỏ trống</div>
+
+                                </div>
+                              </div>
+                              <div class="item_input">
+                                <input type="number" required minlength maxlength [(ngModel)]="user1.phone" #phone="ngModel" name="phone" class="ho_ten" size="40" placeholder="Số điện thoại">
+                                <div  *ngIf="phone?.invalid && (phone.dirty || isValid)">
+                                  <div id="emailHelp" class="form-text" style="color: red; font-weight: 500;" *ngIf="phone.errors?.['required']">Không được bỏ trống</div>
+                                  <div id="emailHelp" class="form-text" style="color: red; font-weight: 500;"*ngIf="phone.errors?.['minlength']">Số điện thoại phải tối thiểu 10 số </div>
+                                  <div id="emailHelp" class="form-text" style="color: red; font-weight: 500;"*ngIf="phone.errors?.['maxlength']">Số điện thoại phải tối đa 12 số </div>
+                                </div>
+                              </div>
+                              <div class="item_input">
+                                <select name="" id="" [(ngModel)]="user1.select" name="select" class="ho_ten select_uc">
+                                    <option value=""  >Tư vấn Du học Úc</option>
+                                </select>
+                              </div>
+                              <div class="item_input">
+                                <input type="date" [(ngModel)]="user1.date" #date="ngModel" name="date" class="ho_ten" size="40" placeholder="Ngày hẹn">
+                                <div  *ngIf="date?.invalid && (date.dirty || isValid)">
+                                  <div id="emailHelp" class="form-text" style="color: red; font-weight: 500;" *ngIf="date.errors?.['required']">Không được bỏ trống</div>
+
+                                </div>
+                              </div>
+
+                              <div class="item_input item_btn">
+                                <input type="submit" class="ho_ten btn_input" value="ĐẶT LỊCH HẸN">
+                              </div>
+                          </form>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-lg-8 contact_appoinment">
+                <div class="row contact_appoinment_khung">
+                    <div class="col-lg-6 col-md-6 col-xs-12 contact_us_item">
+                          <div class="contact_icon">
+                            <div class="bg_icon">
+                              <i class="fa-regular fa-clock"></i>
+                            </div>
+                          </div>
+                          <div class="contact_title">THỜI GIAN LÀM VIỆC</div>
+                          <div class="contact_desc">9.00AM - 5.00PM</div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-xs-12 contact_us_item">
+                      <div class="contact_icon">
+                          <div class="bg_icon">
+                            <i class="fa-regular fa-envelope"></i>
+                          </div>
+                        </div>
+                        <div class="contact_title">EMAIL</div>
+                        <div class="contact_desc">to@thayto.edu.vn</div>
+                    </div>
+                      <div class="col-lg-6 col-md-6 col-xs-12 contact_us_item">
+                        <div class="contact_icon">
+                          <div class="bg_icon">
+                            <i class="fa-solid fa-phone-volume"></i>
+                          </div>
+                        </div>
+                        <div class="contact_title">HOTLINE</div>
+                        <div class="contact_desc">+84 813 060 606 (tại Việt Nam)</div>
+                        <div class="contact_desc">+61 475 383 333 (tại Úc)</div>
+                    </div>
+                      <div class="col-lg-6 col-md-6 col-xs-12 contact_us_item">
+                        <div class="contact_icon">
+                          <div class="bg_icon">
+                            <i class="fa-regular fa-clock"></i>
+                          </div>
+                        </div>
+                        <div class="contact_title">VĂN PHÒNG CHÍNH</div>
+                        <div class="contact_desc">Tổ chức giáo dục đào tạo nghề Châu Á Thái Bình Dương (161 Ngô Quyền, phường 16, Quận 10 Tp. Hồ Chí Minh)</div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

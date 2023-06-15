@@ -1,0 +1,78 @@
+<app-loading *ngIf="isLoading"></app-loading>
+
+
+ <!--  Main wrapper -->
+ <div class="body-wrapper" *ngIf="!isLoading">
+
+<div class="container-fluid">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title fw-semibold mb-4">Tất cả bài viết </h5>
+        <div class="card">
+          <div class="card-body p-4">
+          <button type="button" class="btn btn-primary m-1" (click)="add()" >Thêm bài viết</button>
+           <div class="table-responsive">
+              <table class="table mb-0 align-middle">
+                <thead class="text-dark fs-4">
+                  <tr>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Tên Bài Viết</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Ảnh bìa</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Link </h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Loại Bài viết</h6>
+                    </th>
+
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Tác vụ</h6>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of listbaiviet | paginate: { itemsPerPage: 5, currentPage: p }">
+                    <td style="width: 180px !important;"  class="border-bottom-0">
+                        <h6 class="fw-semibold mb-1 title_hien">{{item.title}}</h6>
+                    </td>
+                    <td class="border-bottom-0" style="width: 180px !important;">
+                      <p class="mb-0 fw-normal"><img class="image_hien" [src]="item.image" width="100%" height="100px" alt="" srcset=""></p>
+                    </td>
+                    <td style="width: 180px !important;"  class="border-bottom-0">
+                      <h6 class="fw-semibold mb-1 date_hien" >{{item.link}}</h6>
+                  </td>
+                    <td class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0 fs-4">
+                        <select class="form-select select_hien" name="parent_id" [(ngModel)]="item.category_id.title"  >
+                          <option  disabled required >{{item.category_id.title}}</option>
+                        </select>
+                      </h6>
+                    </td>
+
+                  <td class="border-bottom-0">
+                    <i class="fa-solid fa-pen-to-square edit" (click)="edit(item)" style="font-size: 20px;margin-right: 10px;"></i>
+                    <i class="fa-solid fa-trash remove" style="font-size: 20px;" (click)="del(item)"></i>
+                  </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+

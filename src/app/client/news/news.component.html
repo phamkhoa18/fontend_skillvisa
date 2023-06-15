@@ -1,0 +1,37 @@
+<app-loading *ngIf="isLoading"></app-loading>
+
+
+<section class="detail" *ngIf="!isLoading">
+
+    <div class="carousel-inner" style="height: 100%;">
+      <div class="carousel-item active" >
+        <span class="anhchinh" ></span>
+        <img src="{{oneItem.image}}" class="d-block w-100 hinhtai" alt="..." >
+        <div class="carousel-caption d-none d-md-block text" style="    bottom: 164px !important;">
+          <h3  >{{oneItem.title}}</h3>
+
+        </div>
+      </div>
+    </div>
+
+
+
+     <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+            <div class="content">
+              <div class="container" style="padding-bottom: 70px;">
+                <span  [innerHTML]="oneItem.description" class="item_content ck-content custom-styling">
+                </span>
+
+              </div>
+            </div>
+            </div>
+          </div>
+     </div>
+</section>
+
+
+
+
+<app-appointment></app-appointment>

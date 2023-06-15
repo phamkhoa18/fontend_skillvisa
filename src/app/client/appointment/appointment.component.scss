@@ -1,0 +1,146 @@
+
+.appointment {
+  background-image: url('https://visionfirstconsulting.com/wp-content/uploads/2020/08/why-choose-us-2-1820x599.jpg');
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  color: #fff;
+}
+
+.sec {
+  padding: 100px 0px;
+}
+
+.container_appointment {
+  height: 100%;
+  max-width: 90%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.form_appointment_tong {
+  background-color: #fff;
+  color: #18335e;
+  padding: 20px;
+  border-radius: 10px;
+  -webkit-box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.16);
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.16);
+}
+
+.form_appoinment {
+  margin-bottom: 20px;
+}
+
+.appointment_title {
+  margin-bottom: 16px;
+  padding-bottom: 21px;
+  font-weight: bold;
+  border-bottom: 1px solid #dce0e7;
+  position: relative;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #18335e;
+}
+
+.ho_ten {
+
+    color: inherit;
+    outline: 0;
+    width: 100%;
+    border: 1px solid #c6c6c6;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+    color: #18335e;
+    height: 3rem;
+    padding: 0 18px;
+    transition: 0.2s;
+}
+
+.item_input {
+  margin-bottom: 15px;
+}
+
+
+.btn_input {
+  background-color: red;
+  color: #ffff;
+  width: 100%;
+  padding: 10px 30px;
+    background-color: #cb1f30;
+    border: 1px solid #cb1f30;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    outline: 0;
+    transition: 0.2s;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.16);
+}
+
+.item_btn {
+  margin: 30px 0px;
+}
+
+.contact_us_item {
+  padding: 50px 70px;
+  text-align: center;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.contact_icon {
+  margin-bottom: 10px;
+}
+
+.contact_title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.bg_icon {
+  width: 60px;
+  height: 60px;
+  background-color: #61ba1d;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+.bg_icon i {
+  font-size: 30px;
+}
+
+.contact_us_item:nth-child(odd) {
+  padding-left: 0;
+  border-right: 1px dashed rgba(255, 255, 255, 0.2);
+}
+
+.contact_us_item:nth-child(3) {
+  border-bottom: 0 !important;
+}
+
+.contact_us_item:last-child {
+  border-bottom: 0 !important;
+}
+
+
+@media screen and (max-width: 768px) {
+  .contact_us_item {
+    padding: 30px !important;
+    border: 0 !important;
+    text-align: center;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+  }
+}
+
+
+.item_btn input:hover{
+  border: #61ba1d;
+  background-color: #61ba1d;
+}

@@ -1,0 +1,118 @@
+
+<app-loading *ngIf="isLoading"></app-loading>
+
+ <div class="body-wrapper" *ngIf="!isLoading" >
+
+<div class="container-fluid">
+  <div class="container-fluid">
+    <form action="" (submit)="submit(userForm)" #userForm="ngForm">
+    <div class="card">
+      <div class="card-body">
+      <h5 class="card-title fw-semibold mb-4">Thêm bài viết </h5>
+      <div class="card-body" style="padding-bottom: 0;">
+        <div class="row">
+          <div class="col-6">
+            <h5 class="card-title fw-semibold mb-4">Tựa bài viết </h5>
+        <div class="mb-3">
+          <div class="mb-3">
+            <input type="text"
+              class="form-control" [(ngModel)]="post.title" name="title" #title="ngModel" id="" aria-describedby="helpId" placeholder="Tiêu đề .... ">
+          </div>
+        </div>
+      </div>
+            <div class="col-6">
+                  <h5 class="card-title fw-semibold mb-4">Hình tiêu đề</h5>
+              <div class="mb-3">
+                <div class="mb-3">
+                  <input type="text"
+                    class="form-control" [(ngModel)]="post.image" name="image" #image="ngModel" id="" aria-describedby="helpId" placeholder="image URL ... ">
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <h5 class="card-title fw-semibold mb-4">Vị trí bài viết</h5>
+            <div class="mb-3">
+              <div class="mb-3">
+                <select class="form-select" name="select" #select="ngModel" [(ngModel)]="post.id_select" >
+                  <option value="" disabled  >Vui lòng chọn vị trí hiển thị bài viết</option>
+                  <option [value]="item._id" *ngFor="let item of listselectdanhmuc" >{{item.title}}</option>
+                </select>
+              </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+      <div class="card-body">
+        <h5 class="card-title fw-semibold mb-4">Nội dung bài viết</h5>
+        <div class="card">
+          <div class="NgxEditor__Wrapper">
+            <ckeditor [editor]="Editor" name="content" [(ngModel)]="post.content" (ready)="onReady($event)"></ckeditor>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div >
+          <h5 class="card-title fw-semibold mb-4">Hiển thị tin nổi bật</h5>
+         <div class="form-check">
+           <input class="form-check-input" name="outstanding" #outstanding="ngModel" type="checkbox" [(ngModel)]="post.outstanding" value="" id="">
+           <label class="form-check-label" for="">
+              Hiển thị ở trang chủ
+           </label>
+         </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Lưu lại</button>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" (click)="log()" data-bs-target="#exampleModal">Xem Demo</button>
+
+
+  </form>
+
+
+
+
+  </div>
+</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal top fade"
+     id="exampleModal"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true"
+     data-mdb-backdrop="true"
+     data-mdb-keyboard="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">DEMO BÀI VIẾT</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <h3 style="text-align: center;" [innerHTML]="post.title" ></h3>
+        <span class="showcontent ck-content" [innerHTML]="this.sanitizer.bypassSecurityTrustHtml(post.content.toString())">
+        </span>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+

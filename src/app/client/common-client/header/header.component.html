@@ -1,0 +1,100 @@
+<div class="header header-full-width">
+    <div class="header-wrapper">
+      <div class="header-top flex-row">
+        <div class="icon_content">
+            <ul class="icon_content_flex">
+                <li>
+                  <a href=""><i class="fa-solid fa-envelope"></i> <span>Email: to@thayto.edu.vn</span></a>
+                </li>
+                <li><a href="tel:+813060606"><i class="fa-solid fa-phone"></i><span>0813060606</span></a></li>
+            </ul>
+        </div>
+      </div>
+
+      <div class="header-main flex-row" [ngClass]="{'codinh': isCroll}">
+          <div class="logo" routerLink="/trang-chu" [ngClass]="{'scroll': isCroll}" >
+              <img src="../../../../assets/logo/EDUCATION (26)w.png" alt="">
+          </div>
+
+          <div class="content_hd">
+              <!-- <ul class="nav_content">
+                  <li class="item_content">
+                    <a href="">TRANG CHỦ</a>
+                  </li>
+                  <li class="item_content">
+                    <a href="">GIỚI THIỆU</a>
+                  </li>
+                  <li class="item_content">
+                    <a href="">ĐỊNH CƯ ÚC</a>
+                  </li>
+                  <li class="item_content">
+                    <a href="">DU HỌC ÚC</a>
+                  </li>
+                  <li class="item_content">
+                    <a href="">CÁC LOẠI VISA <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="submenu">
+
+                      <li class="item_submenu"><a href="">Mục con 1</a></li>
+                      <li class="item_submenu"><a href="">Mục con 2</a></li>
+
+                    </ul>
+                  </li>
+                  <li class="item_content"><a href="">TIN TỨC</a></li>
+                  <li class="item_content"><a href="">LIÊN HỆ</a></li>
+                  <li class="item_content"><a href="" class="button_hd primary">Đặt lịch tư vấn</a></li>
+              </ul> -->
+
+              <ul class="nav_content">
+                <li class="item_content" *ngFor="let item of listmenu" >
+                  <a  routerLink={{item.link}} routerLinkActive="click" ariaCurrentWhenActive="page">{{item.title}} <i *ngIf="item.children" class="fa-solid fa-chevron-down"></i></a>
+                  <ul class="submenu" *ngIf="item.children">
+                    <li class="item_submenu" *ngFor="let itemchildren of item.children" ><a  routerLink={{itemchildren.link}} >{{itemchildren.title}}</a></li>
+                  </ul>
+                </li>
+                <!-- <li class="item_content" *ngFor="let item of listmenu">
+                  <a href="">CÁC LOẠI VISA <i class="fa-solid fa-chevron-down"></i></a>
+                  <ul class="submenu">
+
+                    <li class="item_submenu"><a href="">Mục con 1</a></li>
+                    <li class="item_submenu"><a href="">Mục con 2</a></li>
+
+                  </ul>
+                </li> -->
+                <li class="item_content"><a routerLink="/lien-he" class="button_hd primary">Đặt lịch tư vấn</a></li>
+            </ul>
+          </div>
+
+          <div class="toogle">
+            <i class="fa-solid fa-bars" (click)="toogle()"></i>
+          </div>
+
+      </div>
+    </div>
+</div>
+
+
+
+<div class="mobile_content overplay" [ngClass]="{'show': show}">
+
+
+  <div class="slick_search">
+    <p class="close2"><i (click)="toogle()" class="fa-regular fa-circle-xmark"></i></p>
+    <div class="search"><input placeholder="Tìm kiếm ..." type="text" [(ngModel)]="timkiem" name="timkiem"> <button type="button"(click)="search()" class="btn"><i class="fa-solid fa-magnifying-glass"></i></button> </div>
+  </div>
+
+
+  <ul class="nav_content2" *ngFor="let item of listmenu , let main = index ">
+      <li class="item_content2" >
+        <a  ><span (click)="chuyentrang(item)" >{{item.title}}</span> <i (click)="toggleSubmenu(item)" style="margin-left: 10px;"  *ngIf="item.children" class="fa-solid fa-chevron-down"></i></a>
+        <ul class="submenu" *ngIf="item.children && item.isMenu"  [ngClass]="{'submenushow': item.isMenu}"     >
+          <!-- Các mục con của submenu -->
+          <li class="item_submenu2" (click)="chuyentrang(item1)"  *ngFor="let item1 of item.children , let sub = index "><a  >{{item1.title}}</a></li>
+          <!-- Thêm các mục con khác nếu cần -->
+        </ul>
+      </li>
+  </ul>
+</div>
+
+
+
+

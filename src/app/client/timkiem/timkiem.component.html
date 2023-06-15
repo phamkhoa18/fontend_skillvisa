@@ -1,0 +1,69 @@
+
+
+
+
+<section class="detail" style="padding-top: 140px;">
+  <div class="container">
+       <div class="row">
+         <div class="col-xs-12 col-md-12 col-lg-12">
+           <h2 style="text-align: center; padding-bottom: 20px;font-weight: 600; font-size: 30px; color: black;">KẾT QUẢ TÌM KIẾM TỪ KHÓA : " {{myId}} "</h2>
+         <div class="content">
+           <div class="container" style="padding-bottom: 70px;">
+             <span class="item_content" >
+
+
+              <!-- hiển thị bài viết từ database trả về -->
+              <div class="row" *ngIf="!isHien" >
+
+<div class="wrapper" id="archive-wrapper">
+  <div class="container" id="content" tabindex="-1">
+      <main class="site-main" id="main">
+        <div class="row">
+  <div class="col-lg-4 col-sm-6 col-xs-12" style="margin-bottom: 20px;" *ngFor="let item of listdata">
+    <article routerLink="/{{item.link}}" class="post-2713 post type-post status-publish format-standard has-post-thumbnail hentry category-tin-tuc category-bi-quyet-dinh-cu-uc" id="post-2713">
+        <div class="news-item">
+            <div class="news-item-inner">
+                <div class="thumbnail">
+                    <a  routerLink="/{{item.link}}"><img width="700" height="525" src="{{item.image}}" sizes="(max-width: 700px) 100vw, 700px" /></a>
+                </div>
+            <div class="news-item-info">
+          <!-- <div class="date" style="z-index: 1;">
+            <div class="date_frame">
+              <div class="day">{{item.day}}</div>
+            <div class="month">{{item.month}}</div>
+            </div>
+        </div> -->
+
+        <div class="card-title news_title" routerLink="/{{item.link}}">
+            <div class="news_des"><span class="des_1">
+              <a >Educationvisa</a>
+            </span>  <span class="des_2">
+              0 Comments
+            </span></div>
+            <h3 routerLink="/{{item.link}}" style="cursor: pointer;" ><a style="font-size: 1.5rem !important;" >{{item.title}}</a></h3>
+        </div>
+            </div>
+        </div>
+    </div>
+</article>
+  </div>
+            </div>
+          </main>
+    </div>
+
+    </div>
+            </div>
+
+            <div class="row" *ngIf="isHien" >
+                <p style="text-align: center; padding-top: 100px; padding-bottom: 100px;">KẾT QUẢ TÌM KIẾM KHÔNG CÓ !!</p>
+          </div>
+
+
+             </span>
+
+           </div>
+         </div>
+         </div>
+       </div>
+  </div>
+</section>

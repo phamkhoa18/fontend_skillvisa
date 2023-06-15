@@ -1,0 +1,103 @@
+<app-loading *ngIf="isLoading" ></app-loading>
+<div *ngIf="!isLoading">
+<div cdkDropListGroup >
+  <div class="example-container">
+    <h3>Chưa xử lý <sup style="font-weight: 500; color: red;">{{chuaxuly.length}}</sup> </h3>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="chuaxuly"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box"  *ngFor="let item of chuaxuly" cdkDrag>{{item.username}} <span><i data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="xemchitiet(item)" style="font-size: 20px;" class="fa-solid fa-circle-info"></i> <i style="font-size:20px ; padding-left: 10px; color: rgb(159, 14, 14);" class="fa-solid fa-trash" (click)="del(item)"></i></span> </div>
+    </div>
+  </div>
+
+  <div class="example-container">
+    <h3>Đã xử lý</h3>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="daxuly"
+      class="example-list"
+      (cdkDropListDropped)="drop($event)">
+      <div class="example-box" data-toggle="modal" data-target="#modalCart" *ngFor="let item of daxuly" cdkDrag>{{item.username}} <span><i data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="xemchitiet(item)" style="font-size: 20px;" class="fa-solid fa-circle-info"></i> <i style="font-size:20px ; padding-left: 10px; color: rgb(159, 14, 14);" class="fa-solid fa-trash" (click)="del(item)" ></i></span> </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal top fade"
+     id="exampleModal"
+     tabindex="-1"
+     aria-labelledby="exampleModalLabel"
+     aria-hidden="true"
+     data-mdb-backdrop="true"
+     data-mdb-keyboard="true">
+  <div class="modal-dialog modal-fullscreen" style="padding-top: 100px; padding-bottom: 100px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel" style="font-size: 17px !important;">THÔNG TIN KHÁCH HÀNG CẦN LIÊN HỆ</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" >
+          <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-6">
+                  <div class="mb-3">
+                    <label for="" class="form-label">Tên khách hàng</label>
+                    <input type="text"
+                      class="form-control" [(ngModel)]="oneitem.username" name="" id="" aria-describedby="helpId" placeholder="">
+                  </div>
+              </div>
+              <div class="col-sm-12 col-md-12 col-lg-6">
+                <div class="mb-3">
+                  <label for="" class="form-label">Email </label>
+                  <input type="text"
+                    class="form-control" [(ngModel)]="oneitem.email" name="" id="" aria-describedby="helpId" placeholder="">
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6">
+              <div class="mb-3">
+                <label for="" class="form-label">Tư vấn</label>
+                <input type="text"
+                  class="form-control" [(ngModel)]="oneitem.select" name="" id="" aria-describedby="helpId" placeholder="">
+              </div>
+          </div>
+          <div class="col-sm-12 col-md-12 col-lg-6">
+            <div class="mb-3">
+              <label for="" class="form-label">Ngày tư vấn</label>
+              <input type="text"
+                class="form-control" [(ngModel)]="oneitem.date" name="" id="" aria-describedby="helpId" placeholder="">
+            </div>
+        </div>
+          <div class="col-sm-12 col-md-12 col-lg-6">
+            <div class="mb-3">
+              <label for="" class="form-label">Số điện thoại</label>
+              <input type="text"
+                class="form-control" [(ngModel)]="oneitem.phone" name="" id="" aria-describedby="helpId" placeholder="">
+            </div>
+        </div>
+          </div>
+
+
+          <!-- button -->
+          <button type="button" class="btn btn-primary luu" (click)="xacnhan(oneitem)" style="float: right;">Lưu lại thông tin đã xử lý</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+

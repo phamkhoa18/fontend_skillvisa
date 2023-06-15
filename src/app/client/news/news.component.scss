@@ -1,0 +1,45 @@
+.chinhne {
+  height: 500px;
+  padding-bottom: 30px;
+}
+
+.text h3 {
+  color: #ffff;
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 1.7 !important;
+}
+
+.anhchinh {
+  background-color: black; opacity: 0.5; width: 100%; height: 500px; position: absolute;
+}
+
+.hinhtai {
+  height: 500px;
+}
+
+@media screen and (max-width: 900px) {
+  .ck-content {
+    /* Thêm quy tắc CSS tùy chỉnh của bạn ở đây */
+    img {
+      width: 100px !important;
+      height: 100% !important;
+
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .hinhtai {
+    height: 300px !important ;
+  }
+  .anhchinh {
+     height: 100% !important ;
+  }
+}
+
+
+
+
